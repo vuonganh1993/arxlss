@@ -5,8 +5,8 @@
 	Purpose:		Process a DWG file and don't take care of the way file is opened.
 *********************************************************************/
 
-#ifndef LSS05_H
-#define LSS05_H
+#ifndef LSS05_H_
+#define LSS05_H_
 
 #include "StdAfx.h"
 #include "Resource.h"

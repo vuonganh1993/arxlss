@@ -5,8 +5,8 @@
 						(Just for investigating.)
 *********************************************************************/
 
-#ifndef LSS13_H
-#define LSS13_H
+#ifndef LSS13_H_
+#define LSS13_H_
 
 #include "StdAfx.h"
 #include "Resource.h"

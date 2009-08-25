@@ -4,8 +4,8 @@
 	
 	Purpose:		Create and read Object's Extension data.
 *********************************************************************/
-#ifndef LSS02_H
-#define LSS02_H
+#ifndef LSS02_H_
+#define LSS02_H_
 
 #include "StdAfx.h"
 #include "Resource.h"

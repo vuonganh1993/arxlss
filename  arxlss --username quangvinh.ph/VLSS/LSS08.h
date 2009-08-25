@@ -4,8 +4,8 @@
 	Purpose:		Purge the database's BlockTable, LayerTable, LinetypeTable, TextStyleTable.
 *********************************************************************/
 
-#ifndef LSS08_H
-#define LSS08_H
+#ifndef LSS08_H_
+#define LSS08_H_
 
 #include "StdAfx.h"
 #include "Resource.h"
@@ -167,7 +167,7 @@ int getAllSymbolRecordsIds(AcRxClass* pTableClass, AcDbObjectIdArray & idaAll)
 	}
 
 	delete pSymbolTableIter;
-	CLogger::Print(_T("*Exit: getAllSymbolRecordsIds() - Tim duoc: %02d"), idaAll.length());
+	CLogger::Print(_T("*Exit: getAllSymbolRecordsIds() - Count: %02d"), idaAll.length());
 	return idaAll.length();
 }
 

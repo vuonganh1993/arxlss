@@ -24,7 +24,6 @@
 //-----------------------------------------------------------------------------
 #include "StdAfx.h"
 #include "resource.h"
-#include "Funcs.h"
 #include "LSS01.h"
 #include "LSS02.h"
 #include "LSS03.h"
@@ -154,7 +153,7 @@ public:
 		LSS13();
 	}
 
-	// ----- SGNVLSS.LSS15 command
+	// ----- SGNVLSS.LSS14 command
 	static void SGNVLSSLSS14(void)
 	{
 		LSS14();

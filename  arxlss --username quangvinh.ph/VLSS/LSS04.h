@@ -6,8 +6,8 @@
 	Purpose:		Access DENKI Project's files then print out its BAN_NO.
 *********************************************************************/
 
-#ifndef LSS04_H
-#define LSS04_H
+#ifndef LSS04_H_
+#define LSS04_H_
 
 #include "StdAfx.h"
 #include "Resource.h"
