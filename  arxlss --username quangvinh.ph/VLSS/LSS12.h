@@ -1,22 +1,29 @@
+/********************************************************************
+	File Name:		LSS12.h
+	Author:			Pham Quang Vinh
+	Purpose:		Practice for creating BlockTableRecord, and copying BlockReference
+*********************************************************************/
 
-#ifndef _LSS12_H
-#define _LSS12_H
+#ifndef LSS12_H
+#define LSS12_H
 
 #include "StdAfx.h"
 #include "Resource.h"
 #include "Funcs.h"
 #include "Logger.h"
 
-// Creating a Simple Block Table Record
-bool 
-makeABlock(void);
+/****************************
+ *	Create a simple BlockTableRecord, and append an entity
+ * into it.
+ */
+bool makeABlock(void);
 
-// Copying a Block Table Record with Attribute Definitions manually.
-bool
-copyBlockRef(AcDbBlockReference*, AcGePoint3d, AcDbObjectId&);
+/****************************
+ *	Copy a BlockReference.
+ */
+bool copyBlockRef(AcDbBlockReference*, AcGePoint3d, AcDbObjectId&);
 
-void
-LSS12(void)
+void LSS12(void)
 {
 	CLogger::Print(_T("-------------| START LOGGING LESSONS 12 |--------------"));
 	//makeABlock();
@@ -51,12 +58,11 @@ LSS12(void)
 	pEntity->close();
 }
 
-bool 
-makeABlock(void)
+bool makeABlock(void)
 {
 	CLogger::Print(L"*Call: makeABlock()");
 
-	CLogger::Print(L"Inform: Get current working BlockTable object.");
+	// Get current working database's BlockTable.
 	Acad::ErrorStatus es;
 	AcDbBlockTable* pBlockTable = NULL;
 	es = acdbHostApplicationServices()->workingDatabase()->getSymbolTable(pBlockTable, AcDb::kForWrite);
@@ -64,11 +70,11 @@ makeABlock(void)
 		return false;
 	}
 
-	CLogger::Print(L"Inform: Create new BlockTableRecord object.");
+	// Create new BlockTableRecord object.
 	AcDbBlockTableRecord* pNewRecord = new AcDbBlockTableRecord;
-	pNewRecord->setName(L"SGN-BLK-NO-ATTR");
+	pNewRecord->setName(L"SGN-NEW-BLOCK");
 
-	CLogger::Print(L"Inform: Append new BlockTableRecord into BlockTable object.");
+	// Append new BlockTableRecord into BlockTable object.
 	AcDbObjectId idNewRecord = AcDbObjectId::kNull;
 	es = pBlockTable->add(idNewRecord, pNewRecord);
 	pBlockTable->close();
@@ -76,13 +82,13 @@ makeABlock(void)
 		return false;
 	}
 
-	CLogger::Print(L"Inform: Create new Line object.");
+	// Create new Line object.
 	AcDbLine* pLine = new AcDbLine;
 	pLine->setStartPoint(AcGePoint3d(3, 3, 0));
 	pLine->setEndPoint(AcGePoint3d(20, 60, 0));
 	pLine->setColorIndex(13);
 
-	CLogger::Print(L"Inform: Append new Line into new BlockTableRecord!");
+	// Append new Line into new BlockTableRecord!
 	AcDbObjectId idLine;
 	es = pNewRecord->appendAcDbEntity(idLine, pLine);
 	pLine->close();

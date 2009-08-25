@@ -2,8 +2,9 @@
 	File Name:		LSS03.h
 	Author:			Pham Quang Vinh
 	
-	Purpose:		Access to list all of DENKI Project's files in 2 ways.
+	Purpose:		Access to list all of DENKI Project's files in 2 methods.
 *********************************************************************/
+
 #ifndef LSS03_H
 #define LSS03_H
 

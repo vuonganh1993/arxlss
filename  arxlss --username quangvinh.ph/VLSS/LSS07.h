@@ -1,5 +1,12 @@
-#ifndef __LSS07_H
-#define __LSS07_H
+/********************************************************************
+	File Name:		LSS07.h
+	Author:			Pham Quang Vinh
+	Purpose:		This file just implement an function that list all BlockReference's attributes
+						(Just for investigating).
+*********************************************************************/
+
+#ifndef LSS07_H
+#define LSS07_H
 
 #include "StdAfx.h"
 #include "Resource.h"
@@ -18,12 +25,10 @@ void LSS07()
 void browseAllAttributes(AcDbDatabase* pDb)
 {
 	CLogger::Print(_T("*Call: browseAllAttributes()"));
-	CLogger::Print(_T("Inform: Lay het tat ca block reference's objectId."));
 	Acad::ErrorStatus es;
 	AcDbObjectIdArray idaBlockRefs;
 	int nBlockRefCount = getBlockRefAll(pDb, idaBlockRefs);
 
-	CLogger::Print(_T("Inform: Duyet qua het tat ca Ids lay duoc. [%d]"), nBlockRefCount);
 	for (int nIdx = 0; nIdx < nBlockRefCount; nIdx++) {
 		CLogger::Print(_T("---------[STT = %d]----------"), nIdx);
 		AcDbBlockReference* pBlockRef = NULL;
@@ -31,11 +36,10 @@ void browseAllAttributes(AcDbDatabase* pDb)
 
 		es = acdbOpenObject(pBlockRef, idBlockRef, AcDb::kForRead);
 		if (Acad::eOk != es) {
-			CLogger::Print(ACRX_T("Error: Mo BlockReference bi loi! > Bo Qua"), nIdx);
+			CLogger::Print(ACRX_T("Warn: Fail to open BlockReference! > Ignore"), nIdx);
 			continue;
 		}
 		
-		CLogger::Print(ACRX_T("Inform: Lay tat ca attribute iterator."));
 		AcDbObjectIterator* pBlockRefIter = pBlockRef->attributeIterator();
 		for (; !pBlockRefIter->done(); pBlockRefIter->step()) 
 		{
@@ -43,7 +47,7 @@ void browseAllAttributes(AcDbDatabase* pDb)
 			AcDbObject* pObject = NULL;
 			es = acdbOpenAcDbObject(pObject, idObject, AcDb::kForRead);
 			if (Acad::eOk != es) {
-				CLogger::Print(ACRX_T("Warn: Open Attribute bi loi > Bo Qua."));
+				CLogger::Print(ACRX_T("Warn: Fail to open the BlockReference's Attribute. > Ignore."));
 				continue;
 			}
 
@@ -52,7 +56,7 @@ void browseAllAttributes(AcDbDatabase* pDb)
 				ACHAR* szTag = pAttribute->tag();
 				CLogger::Print(ACRX_T("Tag = %s"), szTag);
 			} else {
-				CLogger::Print(ACRX_T("Warn: Convert object thanh attribute khong duoc!"));
+				CLogger::Print(ACRX_T("Warn: Fail to convert object to Attribute object.!"));
 			}
 
 			pObject->close();

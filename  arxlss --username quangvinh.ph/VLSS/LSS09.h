@@ -1,5 +1,11 @@
-#ifndef __LSS09_H
-#define __LSS09_H
+/********************************************************************
+	File Name:		LSS09.h
+	Author:			Pham Quang Vinh
+	Purpose:		Read database SummaryInfo, Just for investigating.
+*********************************************************************/
+
+#ifndef LSS09_H
+#define LSS09_H
 
 #include "StdAfx.h"
 #include "Resource.h"
@@ -16,14 +22,14 @@ void LSS09()
 	es = acdbGetSummaryInfo(pDb, pSummaryInfo);
 	
 	if (Acad::eOk == es) {
-		ACHAR* szAuthor = _T("\0");
-		ACHAR* szTitle = _T("\0");
-		ACHAR* szComments = _T("\0");
-		ACHAR* szHyperlinkBase = _T("\0");
-		ACHAR* szKeywords = _T("\0");
-		ACHAR* szLastSavedBy = _T("\0");
-		ACHAR* szRevision = _T("\0");
-		ACHAR* szSubject = _T("\0");
+		ACHAR* szAuthor;
+		ACHAR* szTitle;
+		ACHAR* szComments;
+		ACHAR* szHyperlinkBase;
+		ACHAR* szKeywords;
+		ACHAR* szLastSavedBy;
+		ACHAR* szRevision;
+		ACHAR* szSubject;
 
 		pSummaryInfo->getAuthor(szAuthor);
 		pSummaryInfo->getTitle(szTitle);
@@ -53,7 +59,7 @@ void LSS09()
 		acutDelString(szRevision);
 		acutDelString(szSubject);
 	} else {
-		CLogger::Print(_T("*Exit: Khong the lay duoc DatabaseSummaryInfomation"));
+		CLogger::Print(_T("*Exit: Fail to get DatabaseSummaryInfomation."));
 	}
 }
 

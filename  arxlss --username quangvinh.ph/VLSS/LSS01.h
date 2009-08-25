@@ -1,7 +1,6 @@
 /********************************************************************
 	File Name:		LSS01.h
 	Author:			Pham Quang Vinh
-	
 	Purpose:		Create DWG file and read DWG file.
 						Practice Errors Handling.
 *********************************************************************/

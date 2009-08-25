@@ -1,15 +1,18 @@
-#ifndef _LSS14_H
-#define _LSS14_H
+/********************************************************************
+	File Name:		LSS14.h
+	Author:			Pham Quang Vinh
+	Purpose:		Practice for creating and reading Polyline object!
+*********************************************************************/
+
+#ifndef LSS14_H
+#define LSS14_H
 
 #include "StdAfx.h"
 #include "Resource.h"
 #include "Logger.h"
 
-void
-createPolyline(const int nPoints);
-
-void
-iteratePolyline(AcDbObjectId idPLine);
+void createPolyline(const int nPoints);
+void iteratePolyline(AcDbObjectId idPLine);
 
 void LSS14()
 {
@@ -17,10 +20,9 @@ void LSS14()
 
 	AcDbEntity* pEntity= NULL;
 	if ((pEntity = selectEntity(AcDb::kForRead))) {
-		AcDbObjectId idObject = pEntity->objectId();
+		AcDbObjectId idEntity = pEntity->objectId();
 		pEntity->close();
-
-		iteratePolyline(idObject);
+		iteratePolyline(idEntity);
 	}
 }
 

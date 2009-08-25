@@ -1,21 +1,25 @@
-#pragma once
+/********************************************************************
+	File Name:		Ex01Dlg.h
+	Author:			Pham Quang Vinh
+	Purpose:		This file declare CEx01Dlg class that is drived from CAcUiDialog class.
+						Practice for MFC support.
+*********************************************************************/
 
-
-// CEx01Dlg ダイアログ
+#ifndef Ex01Dlg_h__
+#define Ex01Dlg_h__
 
 class CEx01Dlg : public CAcUiDialog
 {
 	DECLARE_DYNAMIC(CEx01Dlg)
 
 public:
-	CEx01Dlg(CWnd* pParent = NULL);   // 標準コンストラクタ
+	CEx01Dlg(CWnd* pParent = NULL); 
 	virtual ~CEx01Dlg();
 
-// ダイアログ データ
 	enum { IDD = IDD_EX01DLG };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV サポート
+	virtual void DoDataExchange(CDataExchange* pDX);
 
 	DECLARE_MESSAGE_MAP()
 public:
@@ -26,4 +30,7 @@ public:
 	{
 		return FALSE;
 	}
+	static void RunMe();
 };
+
+#endif // Ex01Dlg_h__

@@ -207,7 +207,7 @@ bool addToModelSpace(AcDbObjectId& idEntity, AcDbEntity* pEntity)
 {
 	AcDbBlockTable* pBlockTable = NULL;
 	if (Acad::eOk != acdbHostApplicationServices()->workingDatabase()
-							->getSymbolTable(pBlockTable, AcDb::kForRead)) 
+		->getSymbolTable(pBlockTable, AcDb::kForRead)) 
 	{
 		return false;
 	}
