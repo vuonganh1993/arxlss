@@ -5,8 +5,8 @@
 	Purpose:		Access to list all of DENKI Project's files in 2 methods.
 *********************************************************************/
 
-#ifndef LSS03_H
-#define LSS03_H
+#ifndef LSS03_H_
+#define LSS03_H_
 
 #include "StdAfx.h"
 #include "Resource.h"

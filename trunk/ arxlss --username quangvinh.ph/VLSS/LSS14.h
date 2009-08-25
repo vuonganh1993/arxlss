@@ -4,8 +4,8 @@
 	Purpose:		Practice for creating and reading Polyline object!
 *********************************************************************/
 
-#ifndef LSS14_H
-#define LSS14_H
+#ifndef LSS14_H_
+#define LSS14_H_
 
 #include "StdAfx.h"
 #include "Resource.h"

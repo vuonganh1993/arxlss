@@ -1,12 +1,7 @@
-// Ex01Dlg.cpp : 実装ファイル
-//
-
 #include "stdafx.h"
 #include "Resource.h"
 #include "Ex01Dlg.h"
 #include "Logger.h"
-
-// CEx01Dlg ダイアログ
 
 IMPLEMENT_DYNAMIC(CEx01Dlg, CAcUiDialog)
 
@@ -50,14 +45,13 @@ void CEx01Dlg::OnBnClickedCancel()
 
 void CEx01Dlg::OnBnClickedBtntest()
 {
-	CLogger::Print(L"+ Event: OnBnClickedBtntest()");
-	LSS03();
-	CLogger::Print(L"+ Exit: OnBnClickedBtntest()");
+	CLogger::Print(L"*Event: OnBnClickedBtntest()");
+	CLogger::Print(L"*Exit: OnBnClickedBtntest()");
 }
 
 void CEx01Dlg::RunMe()	
 {
-	CLogger::Print(L"-------------| DIALOG 01 |--------------");
+	CLogger::Print(L"--------------------| DIALOG 01 |--------------------");
 	CEx01Dlg dlg;
 	dlg.DoModal();
 }

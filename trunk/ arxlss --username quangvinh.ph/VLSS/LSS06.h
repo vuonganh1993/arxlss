@@ -5,8 +5,8 @@
 						NAME, INST_NO that match with the required values.
 *********************************************************************/
 
-#ifndef LSS06_H
-#define LSS06_H
+#ifndef LSS06_H_
+#define LSS06_H_
 
 #include "StdAfx.h"
 #include "Resource.h"

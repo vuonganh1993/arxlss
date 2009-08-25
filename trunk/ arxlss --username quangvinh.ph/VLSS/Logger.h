@@ -1,7 +1,6 @@
 /********************************************************************
 	File Name:	Logger.h
 	Author:		Pham Quang Vinh
-	
 	Purpose:	This file declares the CLogger class that will enable we to log our application into
 					an special file.
 *********************************************************************/

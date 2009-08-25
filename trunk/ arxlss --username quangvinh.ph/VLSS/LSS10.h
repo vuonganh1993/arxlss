@@ -4,8 +4,8 @@
 	Purpose:		Practice for handling error, and creating entity.
 *********************************************************************/
 
-#ifndef LSS10_H
-#define LSS10_H
+#ifndef LSS10_H_
+#define LSS10_H_
 
 #include "StdAfx.h"
 #include "Resource.h"

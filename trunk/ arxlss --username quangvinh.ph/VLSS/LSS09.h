@@ -4,8 +4,8 @@
 	Purpose:		Read database SummaryInfo, Just for investigating.
 *********************************************************************/
 
-#ifndef LSS09_H
-#define LSS09_H
+#ifndef LSS09_H_
+#define LSS09_H_
 
 #include "StdAfx.h"
 #include "Resource.h"

@@ -5,8 +5,8 @@
 						(Just for investigating).
 *********************************************************************/
 
-#ifndef LSS07_H
-#define LSS07_H
+#ifndef LSS07_H_
+#define LSS07_H_
 
 #include "StdAfx.h"
 #include "Resource.h"

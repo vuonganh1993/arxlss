@@ -4,8 +4,8 @@
 	Purpose:		Practice for creating BlockTableRecord, and copying BlockReference
 *********************************************************************/
 
-#ifndef LSS12_H
-#define LSS12_H
+#ifndef LSS12_H_
+#define LSS12_H_
 
 #include "StdAfx.h"
 #include "Resource.h"

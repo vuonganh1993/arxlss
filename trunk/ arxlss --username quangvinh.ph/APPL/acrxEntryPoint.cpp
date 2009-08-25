@@ -67,11 +67,10 @@ public:
 	// - SGNAPPL.APL command (do not rename)
 	static void SGNAPPLAPL(void)
 	{
-		// Add your code for command SGNAPPL.APL here
 		TCHAR szDrive[_MAX_DRIVE];
 		TCHAR szDir[_MAX_DIR];
-
 		TCHAR szFullPath[_MAX_PATH];
+
 		int nLen = GetModuleFileName(_hdllInstance, szFullPath, _MAX_PATH);
 		if (nLen <= 0) {
 			return;
@@ -112,7 +111,7 @@ public:
 
 void CAPPLApp::LoadAppFromFolder(LPTSTR szFolder)
 {
-	int nLength = lstrlen(szFolder) + 7;
+	int nLength = lstrlen(szFolder) + 6;
 	LPTSTR szSearch = (LPTSTR)::LocalAlloc(LMEM_FIXED, nLength * sizeof(TCHAR));
 	lstrcpy(szSearch, szFolder);
 	szSearch[lstrlen(szFolder)] = L'\0';
@@ -156,7 +155,7 @@ void CAPPLApp::LoadAppFromFolder(LPTSTR szFolder)
 
 void CAPPLApp::UnloadAppFromFolder(LPTSTR szFolder)
 {
-	int nLength = lstrlen(szFolder) + 7;
+	int nLength = lstrlen(szFolder) + 6;
 	LPTSTR szSearch = (LPTSTR)::LocalAlloc(LMEM_FIXED, nLength * sizeof(TCHAR));
 	lstrcpy(szSearch, szFolder);
 	szSearch[lstrlen(szFolder)] = L'\0';
