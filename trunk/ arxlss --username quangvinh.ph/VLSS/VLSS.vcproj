@@ -4,6 +4,7 @@
 	Version="8.00"
 	Name="VLSS"
 	ProjectGUID="{52F48675-5222-4CBF-A3DB-3F1DC8098374}"
+	RootNamespace="VLSS"
 	>
 	<Platforms>
 		<Platform
@@ -359,5 +360,9 @@
 		</Filter>
 	</Files>
 	<Globals>
+		<Global
+			Name="RESOURCE_FILE"
+			Value="VLSS.rc"
+		/>
 	</Globals>
 </VisualStudioProject>
