@@ -51,6 +51,13 @@ void CEx01Dlg::OnBnClickedCancel()
 void CEx01Dlg::OnBnClickedBtntest()
 {
 	CLogger::Print(L"+ Event: OnBnClickedBtntest()");
-
+	LSS03();
 	CLogger::Print(L"+ Exit: OnBnClickedBtntest()");
+}
+
+void CEx01Dlg::RunMe()	
+{
+	CLogger::Print(L"-------------| DIALOG 01 |--------------");
+	CEx01Dlg dlg;
+	dlg.DoModal();
 }

@@ -70,7 +70,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="../ArxOutput/$(OutDir)/SGNVLSS.arx"
+				OutputFile="$(OutDir)/SGNVLSS.arx"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="..\..\..\lib\$(OutDir)J;..\..\..\lib\$(OutDir);..\..\..\lib\ac17"
 				LinkDLL="true"
@@ -162,7 +162,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="../ArxOutput/$(OutDir)/SGNVLSS.arx"
+				OutputFile="$(OutDir)/SGNVLSS.arx"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="..\..\..\lib\$(OutDir)J;..\..\..\lib\$(OutDir);..\..\..\lib\ac17"
 				LinkDLL="true"

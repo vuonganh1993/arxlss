@@ -1,5 +1,11 @@
-#ifndef __LSS10_H
-#define __LSS10_H
+/********************************************************************
+	File Name:		LSS10.h
+	Author:			Pham Quang Vinh
+	Purpose:		Practice for handling error, and creating entity.
+*********************************************************************/
+
+#ifndef LSS10_H
+#define LSS10_H
 
 #include "StdAfx.h"
 #include "Resource.h"
@@ -46,7 +52,7 @@ Acad::ErrorStatus createCircle(AcDbObjectId & idCircle)
 
 	idCircle = AcDbObjectId::kNull;
 	AcGePoint3d pt3Center(9.0, 3.0, 0.0);
-	AcGeVector3d vt3Normal(0.0, 0.0, 1.0); // Duong truc giao
+	AcGeVector3d vt3Normal(0.0, 0.0, 1.0);
 	AcDbCircle* pCircle = new AcDbCircle(pt3Center, vt3Normal, 10.0);
 
 	if (!pCircle) {

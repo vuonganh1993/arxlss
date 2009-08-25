@@ -1,3 +1,10 @@
+/********************************************************************
+	File Name:		LSS13.h
+	Author:			Pham Quang Vinh
+	Purpose:		Read BlockTableRecord's components.
+						(Just for investigating.)
+*********************************************************************/
+
 #ifndef LSS13_H
 #define LSS13_H
 
@@ -13,11 +20,15 @@ void LSS13()
 	Acad::ErrorStatus es;
 	ACHAR szBlockName[50] = L"\0";
 	
+	//------------
+	// Require to enter the BlockTable name.
 	if (RTNORM != acedGetString(Adesk::kTrue, L"\nEnter block name <CR for current space>", szBlockName)) {
 		return;
 	}
 
-	if (szBlockName[0] == L'\0') {
+	//------------
+	// If didn't enter the BlockTableRecord name get the current viewing space name.
+	if (szBlockName[0] == L'\0' || 0 == lstrcmp(szBlockName, L"cr")) {
 		if (Adesk::kFalse == acdbHostApplicationServices()->workingDatabase()->tilemode()) {
 			CLogger::Print(L"Inform: TILEMODE = FALSE - Select the current viewing workspace.");
 			struct resbuf rsb;
@@ -31,16 +42,32 @@ void LSS13()
 		}
 	}
 
-	CLogger::Print(L"Infrom: selected workspace '%s'", szBlockName);
+	//------------
+	// Open the specified BlockTableRecord for read.
 	AcDbBlockTable* pBlockTable = NULL;
 	es = acdbHostApplicationServices()->workingDatabase()->getSymbolTable(pBlockTable, AcDb::kForRead);
+	if (Acad::eOk != es) {
+		CLogger::Print(L"*Exit: Fail to get the BlockTable!");
+		return;
+	}
 	
 	AcDbBlockTableRecord* pBlockTableRecord = NULL;
 	es = pBlockTable->getAt(szBlockName, pBlockTableRecord, AcDb::kForRead);
 	pBlockTable->close();
+	if (Acad::eOk != es) {
+		CLogger::Print(L"*Exit: Fail to get the BlockTableRecord!");
+		return;
+	}
 
+	//------------
+	// Get BlockTableRecord's Iterator then steps through BlockTableRecords.
 	AcDbBlockTableRecordIterator* pBlockTableRecordIter = NULL;
 	es = pBlockTableRecord->newIterator(pBlockTableRecordIter);
+	pBlockTableRecord->close();
+	if (Acad::eOk != es) {
+		CLogger::Print(L"*Exit: Fail to get the BlockTableRecord's Iterator.");
+		return;
+	}
 
 	for (int nCount = 0; !pBlockTableRecordIter->done(); pBlockTableRecordIter->step(), nCount++) {
 		AcDbEntity* pEntity = NULL;
@@ -59,7 +86,6 @@ void LSS13()
 	}
 
 	delete pBlockTableRecordIter;
-	pBlockTableRecord->close();
 	CLogger::Print(L"*Exit");
 }
 

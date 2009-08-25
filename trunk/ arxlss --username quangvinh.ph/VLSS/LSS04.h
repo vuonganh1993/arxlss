@@ -14,12 +14,10 @@
 #include "Funcs.h"
 #include "Logger.h"
 
-#include "DENKIPJM.h"
-#include "DENKISYT.h"
-#include "DENKICMG.h"
-#include "DENKIPJT.h"
-#include "DENKIPRJ.h"
-#include "DENKIZWT.h"
+#include "DENKIPJM.h"	// DENKI_ZUWAKU, OTHER_ZUWAKU
+#include "DENKIPJT.h"	// DenkiDwgProject class, DenkiDwgProjectFile class
+#include "DENKIPRJ.h"	// DenkiIsOpenProject()
+#include "DENKIZWT.h"	// DenkiGetDwgBanNumber()
 
 void LSS04()
 {

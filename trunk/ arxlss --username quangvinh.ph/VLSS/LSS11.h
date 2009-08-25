@@ -1,5 +1,5 @@
-#ifndef __LSS11_H
-#define __LSS11_H
+#ifndef LSS11_H
+#define LSS11_H
 
 #include "StdAfx.h"
 #include "Resource.h"

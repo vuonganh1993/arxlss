@@ -1,23 +1,30 @@
-#ifndef __LSS06_H
-#define __LSS06_H
+/********************************************************************
+	File Name:		LSS06.h
+	Author:			Pham Quang Vinh
+	Purpose:		Browse all DENKI project's files, then search the file has got BAN_NO
+						NAME, INST_NO that match with the required values.
+*********************************************************************/
+
+#ifndef LSS06_H
+#define LSS06_H
 
 #include "StdAfx.h"
 #include "Resource.h"
 #include "Funcs.h"
 #include "Logger.h"
 
-#include "DENKIUIM.h"
-#include "DENKISYT.h"
-#include "DENKIPJT.h"
-#include "DENKIPRJ.h"
+#include "DENKIUIM.h"	// DenkiDuplicationCheckLevel class, DenkiGetDuplicationCheckLevel()
+#include "DENKISYT.h"	// DenkiSymbolSnapshot class
+#include "DENKIPJT.h"	// DenkiDwgProject class, DenkiDwgProjectFile class
+#include "DENKIPRJ.h"	// DenkiIsOpenProject()
 
 void LSS06()
 {
 	CLogger::Print(_T("-------------| START LOGGING LESSONS 06 |--------------"));
 
-	CLogger::Print(_T("Inform: Get the Denki current project pointer, and number of files of project."));
+	//------------
+	// Get the current DENKI project pointer, and number of files of project.
 	if (!DenkiIsOpenProject()) {
-		CLogger::Print(_T("Denki project has not been opened yet!"));
 		acutPrintf(ACRX_T("Denki project has not been opened yet!"));
 		return;
 	}
@@ -26,11 +33,12 @@ void LSS06()
 	DenkiDwgProject* pCurProj = DenkiDwgProject::getCurrent();
 	int nFileCount = pCurProj->count();
 	if (nFileCount < 1) {
-		CLogger::Print(_T("*Exit: no file within current project!"));
+		CLogger::Print(_T("*Exit: There is no file within current project!"));
 		return;
 	}
 
-	CLogger::Print(_T("Inform: Get the 'Duplication Check Level' option."));
+	//------------
+	// Get the 'Duplication Check Level' option of DENKI project.
 	DenkiDuplicationCheckLevel CheckLvl = DenkiGetDuplicationCheckLevel(_T("NAME"));
 	bool bChkInstNo = (CheckLvl == dclAsInstNumber) ? true : false;
 	bool bChkBanNo = (CheckLvl == dclAsBanNumber) ? true : false;
@@ -43,14 +51,13 @@ void LSS06()
 		, (bChkInstNo ? _T("Checked") : _T("Unchecked"))
 		, (bChkBanNo ? _T("Checked") : _T("Unchecked")));
 
-	
-	CLogger::Print(_T("Inform: Require to input keywords to seach"));
+	//------------
+	// Require to input BAN_NO, INST_NO, NAME keywords to search.
 	ACHAR szNeedBanNo[256] = ACRX_T("\0");
 	ACHAR szNeedInstNo[256] = ACRX_T("\0");
 	ACHAR szNeedName[256] = ACRX_T("\0");
 
 	if (bChkBanNo) {
-		CLogger::Print(_T("Inform: require the BAN_NO keyword."));
 		::LoadString(_hdllInstance, IDS_ASK_BANNO, szMsg, sizeof(szMsg)/sizeof(ACHAR));
 		if (RTNORM != acedGetString(1, szMsg, szNeedBanNo)) {
 			CLogger::Print(_T("*Exit: Fail to get the BAN_NO keyword."));
@@ -59,7 +66,6 @@ void LSS06()
 	}
 
 	if (bChkInstNo) {
-		CLogger::Print(_T("Inform: require the INST_NO keyword."));
 		::LoadString(_hdllInstance, IDS_ASK_INSTNO, szMsg, sizeof(szMsg)/sizeof(ACHAR));
 		if (RTNORM != acedGetString(1, szMsg, szNeedInstNo)) {
 			CLogger::Print(_T("*Exit: Fail to get the INST_NO keyword."));
@@ -67,30 +73,28 @@ void LSS06()
 		}
 	}
 
-	CLogger::Print(_T("Inform: require the NAME keyword."));
 	::LoadString(_hdllInstance, IDS_ASK_NAME, szMsg, sizeof(szMsg)/sizeof(ACHAR));
 	if (RTNORM != acedGetString(1, szMsg, szNeedName)) {
 		CLogger::Print(_T("*Exit: Fail to get the NAME keyword."));
 		return;
 	}
 
-	CLogger::Print(_T("Inform: Browse all of project's files to search."));
+	//------------
+	// Steps through DENKI project's files.
 	for (int nIndex = 0; nIndex < nFileCount; nIndex++) {
 		CLogger::Print(_T("---- Index = %d ----"), nIndex);
-
 		DenkiDwgProjectFile& file = pCurProj->getDwgAt(nIndex);
 		if (!file.hasZuwaku()) {
 			CLogger::Print(_T("Warn: File has not ZUWAKU. > Ignore"));
 			continue;
 		}
 
-		//CLogger::Print(_T("Inform: get file's path, and file name"));
+		// Get file path, and file name
 		LPCASTR pszFileName = NULL;
 		file.getFilePath(pszFileName);
-		acutPrintf(ACRX_T("\n%02d:[%s]"), nIndex, pszFileName);
 		CLogger::Print(_T("> %s"), pszFileName);
 
-		//CLogger::Print(_T("Inform: check whether or not file has got DENKI_ZUWAKU."));
+		// Check whether or not file has got DENKI_ZUWAKU.
 		DWORD dwFlags = 0;
 		if (!file.getZuwakuFlags(dwFlags)) {
 			CLogger::Print(_T("Warn: Fail to get the ZUWAKU flags > Ignore"));
@@ -101,7 +105,7 @@ void LSS06()
 			continue;
 		}
 
-		CLogger::Print(_T("Inform: get the current working database (Just to store)"));
+		// Get the current working database (Just to store).
 		AcDbDatabase* pCurDb = acdbHostApplicationServices()->workingDatabase();
 
 		Acad::ErrorStatus esResult;
@@ -110,14 +114,14 @@ void LSS06()
 		bool bFromProject = false;
 		bool bReadMyseft = false;
 
-		CLogger::Print(_T("Inform: Look up the required database from managed documents."));
+		// Look up the required database from managed documents.
 		if (pDoc = findDocument(pszFileName)) {
 			CLogger::Print(_T("Inform: found out the database from managed documents."));
 			pDb = pDoc->database();
 		}
 
 		if (!pDb) {
-			CLogger::Print(_T("Inform: Look up the required database from current DENKI project!"));
+			// Look up the required database from current opening DENKI project!
 			if (!DCMG::IsCacheRunning()) {
 				CLogger::Print(_T("Inform: cache is not running > try to get database object."));
 				if (pDb = DenkiGetProjectAcDbDatabase(pszFileName)) {
@@ -133,8 +137,8 @@ void LSS06()
 				}
 			}
 
+			// Open DWG file into an empty database object!
 			if (!pDb) {
-				CLogger::Print(_T("Inform: open DWG file into an empty database object!"));
 				pDb = new AcDbDatabase(false, true);
 				esResult = pDb->readDwgFile(pszFileName, _SH_DENYNO);
 				if (Acad::eOk == esResult) {
@@ -154,11 +158,16 @@ void LSS06()
 			}
 		}
 
-		
+		//------------
+		// We have got the database pointer now!
+		// Get all of its BlockReferences. Then steps through them.
 		AcDbObjectIdArray idaAll;
 		int nBlkRefCount = getBlockRefAll(pDb, idaAll);
-		CLogger::Print(_T("Inform: Browse all of file's block reference! - %d"), nBlkRefCount);
+
+		CLogger::Print(_T("Inform: Browse all of file's block reference! - Number: %d"), nBlkRefCount);
 		for (int nIdx = 0; nIdx < nBlkRefCount; nIdx++) {
+
+			// Get the BlockReference's information!
 			DenkiSymbolSnapshot dss;
 			if (!dss.open(idaAll[nIdx], ACRX_T("NAME, NAME#*, BAN_NO, INST_NO"))) {
 				CLogger::Print(_T("Warn: Fail to open DenkSymbolSnapshot object. > Ignore"));
@@ -167,6 +176,7 @@ void LSS06()
 
 			LPASTR pszBanNo = NULL, pszInstNo = NULL, pszName = NULL;
 
+			// Compare BlockReference's information with the required Keywords.
 			switch (1)
 			{
 			case 1:
@@ -198,23 +208,24 @@ void LSS06()
 					break;
 				}
 
-			default:
+			default: // Found out the match BlockReference.
 				acutPrintf(ACRX_T("Found out %d. NAME = '%s', BAN_NO = '%s', INST_NO = '%s'")
 					, nIdx, szNeedName, (bChkBanNo ? szNeedBanNo : L""), (bChkInstNo ? szNeedInstNo : L""));
 				CLogger::Print(_T("Inform: Found out %d. NAME = '%s', BAN_NO = '%s', INST_NO = '%s'")
 					, nIdx, szNeedName, (bChkBanNo ? szNeedBanNo : L""), (bChkInstNo ? szNeedInstNo : L""));
 			}
 
-			dss.close();
+			// Release BlockReference's information.
 			if (pszBanNo)
 				dss.freeString(pszBanNo);
 			if (pszInstNo)
 				dss.freeString(pszInstNo);
 			if (pszName)
 				dss.freeString(pszName);
+			dss.close();
 		}
 
-		CLogger::Print(_T("Inform: Free memory to exit."));
+		// Free memory to exit.
 		if (bReadMyseft) {
 			CLogger::Print(_T("Inform: DWG file has been opened into an empty database object!"));
 			delete pDb;
