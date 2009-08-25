@@ -23,14 +23,15 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 public:
-	afx_msg void OnBnClickedOk();
-	afx_msg void OnBnClickedCancel();
-	afx_msg void OnBnClickedBtntest();
-	afx_msg LONG OnAcadKeepFocus(UINT, LONG)
-	{
-		return FALSE;
-	}
+	afx_msg void on_btnOk_clicked();
+	afx_msg void on_btnCancel_clicked();
+	afx_msg void on_btnTest_clicked();
+
 	static void RunMe();
+public:
+	CString m_strUser;
+public:
+	CString m_strPass;
 };
 
 #endif // Ex01Dlg_h__

@@ -51,7 +51,7 @@ bool purgeSymbolTable(AcRxClass* pTableClass)
 	getAllSymbolRecordsIds(pTableClass, idaAll);
 
 	//------------
-	// Filter SymbolTableRecord's ObjectIds that is useless.
+	// Filter SymbolTableRecord's ObjectIds that need to purge.
 	AcDbDatabase* pDb = acdbHostApplicationServices()->workingDatabase();
 	es = pDb->purge(idaAll);
 
@@ -75,7 +75,7 @@ bool purgeSymbolTable(AcRxClass* pTableClass)
 	}
 
 	//------------
-	// Steps through the the SymbolTableRecords
+	// Steps through the SymbolTableRecords
 	for (int nIndex = 0; nIndex < nLength; nIndex++) {
 		AcDbSymbolTableRecord* pSymbolTableRecord = NULL;
 		if (Acad::eOk != acdbOpenObject(pSymbolTableRecord, idaAll[nIndex], AcDb::kForWrite)) {
