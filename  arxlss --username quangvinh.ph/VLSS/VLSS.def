@@ -1,0 +1,5 @@
+LIBRARY	"VLSS"
+
+EXPORTS
+acrxEntryPoint		PRIVATE
+acrxGetApiVersion	PRIVATE
