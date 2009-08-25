@@ -1,7 +1,9 @@
 /********************************************************************
 	File Name:		LSS08.h
 	Author:			Pham Quang Vinh
-	Purpose:		Purge the database's BlockTable, LayerTable, LinetypeTable, TextStyleTable.
+
+	Purpose:		Purge the database's BlockTable, LayerTable, 
+					LinetypeTable, TextStyleTable.
 *********************************************************************/
 
 #ifndef LSS08_H_
@@ -14,8 +16,8 @@
 #include "LayerState.h"
 
 /****************************
- *	Purpose:		get all TableRecord's ObjectId to an AcDbObjectIdArray
- *						then return number of TableRecords.
+ * Purpose:	get all TableRecord's ObjectId to an AcDbObjectIdArray
+ *				then return number of TableRecords.
  *
  * pTableClass:	Specify the kind of SymbolTable that we are going to
  *						work on.
@@ -23,22 +25,20 @@
 int getAllSymbolRecordsIds(AcRxClass* pTableClass, AcDbObjectIdArray& idaAll);
 
 /****************************
- *	Purpose:		Purge a SymbolTable.
+ * Purpose:	Purge a SymbolTable.
  *
  * pTableClass:	Specify the kind of SymbolTable that we are going to
- *						purge.
+ *				purge.
  */
 bool purgeSymbolTable(AcRxClass* pTableClass);
 
 void LSS08()
 {
 	CLogger::Print(_T("-------------| START LOGGING LESSONS 08 |--------------"));
-	while (purgeSymbolTable(AcDbBlockTable::desc())) {
-	}
-
-	purgeSymbolTable(AcDbLayerTable::desc());
-	purgeSymbolTable(AcDbLinetypeTable::desc());
-	purgeSymbolTable(AcDbTextStyleTable::desc());
+	while (purgeSymbolTable(AcDbBlockTable::desc())
+		|| purgeSymbolTable(AcDbLayerTable::desc())
+		|| purgeSymbolTable(AcDbLinetypeTable::desc())
+		|| purgeSymbolTable(AcDbTextStyleTable::desc()));
 }
 
 
@@ -84,7 +84,7 @@ bool purgeSymbolTable(AcRxClass* pTableClass)
 		}
 
 		// Get SymbolTableRecord's name (just for informing)
-		const ACHAR*  szRecordName;
+		const ACHAR* szRecordName;
 		if (Acad::eOk != pSymbolTableRecord->getName(szRecordName)) {
 			CLogger::Print(_T("Warn: Fail to get the Record's name! > Ignore"));
 			continue;

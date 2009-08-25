@@ -13,7 +13,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// 日本語 resources
+// Japanese resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)
 #ifdef _WIN32
@@ -71,7 +71,7 @@ BEGIN
             VALUE "FileDescription", "VLSS ObjectARX application"
             VALUE "FileVersion", "1, 0, 0, 1"
             VALUE "InternalName", "VLSS"
-            VALUE "LegalCopyright", "Copyright ｩ 2002"
+            VALUE "LegalCopyright", "Copyright ? 2002"
             VALUE "OriginalFilename", "SGNVLSS.arx"
             VALUE "ProductName", "VLSS Application"
             VALUE "ProductVersion", "1, 0, 0, 1"
@@ -95,8 +95,8 @@ CAPTION "Dialog"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,129,7,50,14
-    PUSHBUTTON      "キャンセル",IDCANCEL,129,24,50,14
-    PUSHBUTTON      "&Test",IDC_BTNTEST,75,55,33,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,129,24,50,14
+    PUSHBUTTON      "&Test",IDC_BTNTEST,7,7,33,14
 END
 
 
@@ -132,7 +132,17 @@ BEGIN
     IDS_ASK_NAME            "Please input NAME keyword."
 END
 
-#endif    // 日本語 resources
+#endif    // Japanese resources
 /////////////////////////////////////////////////////////////////////////////
 
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
 
