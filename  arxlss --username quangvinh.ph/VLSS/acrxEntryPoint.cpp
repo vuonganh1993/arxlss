@@ -26,16 +26,20 @@
 #include "resource.h"
 #include "LSS01.h"
 #include "LSS02.h"
+#ifdef DENKI_APPLICATION
 #include "LSS03.h"
 #include "LSS04.h"
 #include "LSS05.h"
 #include "LSS06.h"
+#endif
 #include "LSS07.h"
 #include "LSS08.h"
 #include "LSS09.h"
 #include "LSS10.h"
 #include "LSS11.h"
+#ifdef DENKI_APPLICATION
 #include "LSS12.h"
+#endif
 #include "LSS13.h"
 #include "LSS14.h"
 #include "Ex01Dlg.h"
@@ -90,25 +94,41 @@ public:
 	// - SGNVLSS.LSS03 command (do not rename)
 	static void SGNVLSSLSS03(void)
 	{
-		LSS03();
+		#ifdef DENKI_APPLICATION
+			LSS03();
+		#else
+			acutPrintf(ACRX_T("\nDon't support DENKI library!"));
+		#endif
 	}
 
 	// - SGNVLSS.LSS04 command (do not rename)
 	static void SGNVLSSLSS04(void)
 	{
-		LSS04();
+		#ifdef DENKI_APPLICATION
+			LSS04();
+		#else
+			acutPrintf(ACRX_T("\nDon't support DENKI library!"));
+		#endif
 	}
 
 	// - SGNVLSS.LSS05 command (do not rename)
 	static void SGNVLSSLSS05(void)
 	{
-		LSS05();
+		#ifdef DENKI_APPLICATION
+			LSS05();
+		#else
+			acutPrintf(ACRX_T("\nDon't support DENKI library!"));
+		#endif
 	}
 
 	// - SGNVLSS.LSS06 command (do not rename)
 	static void SGNVLSSLSS06(void)
 	{
-		LSS06();
+		#ifdef DENKI_APPLICATION
+			LSS06();
+		#else
+			acutPrintf(ACRX_T("\nDon't support DENKI library!"));
+		#endif
 	}
 
 	// - SGNVLSS.LSS07 command (do not rename)
@@ -144,7 +164,11 @@ public:
 	// - SGNVLSS.LSS12 command (do not rename)
 	static void SGNVLSSLSS12(void)
 	{
-		LSS12();
+		#ifdef DENKI_APPLICATION
+			LSS12();
+		#else
+			acutPrintf(ACRX_T("\nDon't support DENKI library!"));
+		#endif
 	}
 
 	// - SGNVLSS.LSS13 command (do not rename)
