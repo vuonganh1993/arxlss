@@ -113,7 +113,7 @@ public:
 void CAPPLApp::LoadAppFromFolder(LPTSTR szFolder)
 {
 	int nLength = lstrlen(szFolder) + 7;
-	LPTSTR szSearch = (LPTSTR)::LocalAlloc(LMEM_FIXED, nLength);
+	LPTSTR szSearch = (LPTSTR)::LocalAlloc(LMEM_FIXED, nLength * sizeof(TCHAR));
 	lstrcpy(szSearch, szFolder);
 	szSearch[lstrlen(szFolder)] = L'\0';
 
@@ -157,7 +157,7 @@ void CAPPLApp::LoadAppFromFolder(LPTSTR szFolder)
 void CAPPLApp::UnloadAppFromFolder(LPTSTR szFolder)
 {
 	int nLength = lstrlen(szFolder) + 7;
-	LPTSTR szSearch = (LPTSTR)::LocalAlloc(LMEM_FIXED, nLength);
+	LPTSTR szSearch = (LPTSTR)::LocalAlloc(LMEM_FIXED, nLength * sizeof(TCHAR));
 	lstrcpy(szSearch, szFolder);
 	szSearch[lstrlen(szFolder)] = L'\0';
 
