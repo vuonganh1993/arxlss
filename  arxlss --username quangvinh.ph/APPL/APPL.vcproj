@@ -4,6 +4,7 @@
 	Version="8.00"
 	Name="APPL"
 	ProjectGUID="{30469471-3B14-411C-AB1C-05322B86B329}"
+	RootNamespace="APPL"
 	>
 	<Platforms>
 		<Platform
@@ -70,6 +71,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
+				AdditionalDependencies="rxapi.lib acdb17.lib"
 				OutputFile="$(outdir)/SGNAPPL.arx"
 				LinkIncremental="2"
 				LinkDLL="true"
@@ -162,6 +164,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
+				AdditionalDependencies="rxapi.lib acdb17.lib"
 				OutputFile="$(outdir)/SGNAPPL.arx"
 				LinkIncremental="2"
 				LinkDLL="true"
