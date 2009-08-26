@@ -60,7 +60,7 @@ public:
 		// You *must* call On_kInitAppMsg here
 		AcRx::AppRetCode retCode =AcRxArxApp::On_kInitAppMsg (pkt) ;
 		
-		// TODO: Add your initialization code here
+		// TODO: Add your initialization code here	
 
 		return (retCode) ;
 	}

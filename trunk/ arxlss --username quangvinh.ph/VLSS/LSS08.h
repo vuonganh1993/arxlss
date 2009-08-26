@@ -3,7 +3,7 @@
 	Author:			Pham Quang Vinh
 
 	Purpose:		Purge the database's BlockTable, LayerTable, 
-					LinetypeTable, TextStyleTable.
+						LinetypeTable, TextStyleTable.
 *********************************************************************/
 
 #ifndef LSS08_H_
@@ -87,6 +87,7 @@ bool purgeSymbolTable(AcRxClass* pTableClass)
 		const ACHAR* szRecordName;
 		if (Acad::eOk != pSymbolTableRecord->getName(szRecordName)) {
 			CLogger::Print(_T("Warn: Fail to get the Record's name! > Ignore"));
+			pSymbolTableRecord->close();
 			continue;
 		}
 
