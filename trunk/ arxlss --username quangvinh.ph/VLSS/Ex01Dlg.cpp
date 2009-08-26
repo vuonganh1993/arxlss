@@ -1,3 +1,11 @@
+/********************************************************************
+	Created:		26:8:2009   16:22
+	File Name:		Ex01Dlg.cpp
+	Author:			Pham Quang Vinh
+	
+	Purpose:		This file implements CEx01Dlg's functions.
+*********************************************************************/
+
 #include "stdafx.h"
 #include "Resource.h"
 #include "Ex01Dlg.h"
@@ -55,7 +63,8 @@ void CEx01Dlg::on_btnOk_clicked()
 		return;
 	}
 
-	MessageBox(L"Thank for logging!", L"Welcome!");
+	MessageBox(L"Welcome to ObjectARX examples.\nAuthor: Pham Quang Vinh."
+		, L"Welcome!", MB_ICONINFORMATION | MB_OK);
 
 	OnOK();
 	CLogger::Print(_T("*Exit: on_btnOk_clicked()"));
@@ -67,7 +76,6 @@ void CEx01Dlg::on_btnCancel_clicked()
 
 	int nResult = MessageBox(L"Do you make sure to exit!"
 		, L"Confirm", MB_ICONQUESTION | MB_YESNO);
-
 	if (nResult == IDYES) {
 		OnCancel();
 		CLogger::Print(_T("*Exit: on_btnCancel_clicked()"));
@@ -86,7 +94,7 @@ void CEx01Dlg::on_btnTest_clicked()
 
 void CEx01Dlg::RunMe()	
 {
-	CLogger::Print(L"--------------------| DIALOG 01 |--------------------");
+	CLogger::Print(L"--------------------| START LOGGING DIALOG 01 |--------------------");
 	CEx01Dlg dlg;
 	dlg.DoModal();
 }

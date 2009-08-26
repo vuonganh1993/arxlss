@@ -42,7 +42,10 @@
 #endif
 #include "LSS13.h"
 #include "LSS14.h"
+
 #include "Ex01Dlg.h"
+#include "Ex02Dlg.h"
+#include "Ex03Dlg.h"
 
 //-----------------------------------------------------------------------------
 #define szRDS _RXST("SGN")
@@ -187,6 +190,18 @@ public:
 	{
 		CEx01Dlg::RunMe();
 	}
+
+	// - SGNVLSS.DLG02 command (do not rename)
+	static void SGNVLSSDLG02(void)
+	{
+		CEx02Dlg::RunMe();
+	}
+
+	// - SGNVLSS.DLG03 command (do not rename)
+	static void SGNVLSSDLG03(void)
+	{
+		CEx03Dlg::RunMe();
+	}
 } ;
 
 //-----------------------------------------------------------------------------
@@ -207,3 +222,5 @@ ACED_ARXCOMMAND_ENTRY_AUTO(CVLSSApp, SGNVLSS, LSS12, LSS12, ACRX_CMD_TRANSPARENT
 ACED_ARXCOMMAND_ENTRY_AUTO(CVLSSApp, SGNVLSS, LSS13, LSS13, ACRX_CMD_TRANSPARENT, NULL)
 ACED_ARXCOMMAND_ENTRY_AUTO(CVLSSApp, SGNVLSS, LSS14, LSS14, ACRX_CMD_TRANSPARENT, NULL)
 ACED_ARXCOMMAND_ENTRY_AUTO(CVLSSApp, SGNVLSS, DLG01, DLG01, ACRX_CMD_TRANSPARENT, NULL)
+ACED_ARXCOMMAND_ENTRY_AUTO(CVLSSApp, SGNVLSS, DLG02, DLG02, ACRX_CMD_TRANSPARENT, NULL)
+ACED_ARXCOMMAND_ENTRY_AUTO(CVLSSApp, SGNVLSS, DLG03, DLG03, ACRX_CMD_TRANSPARENT, NULL)

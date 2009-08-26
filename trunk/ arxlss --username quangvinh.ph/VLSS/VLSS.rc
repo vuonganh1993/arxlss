@@ -13,7 +13,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Japanese resources
+// 日本語 resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)
 #ifdef _WIN32
@@ -102,6 +102,28 @@ BEGIN
     LTEXT           "Password:",IDC_STATIC_PASS,14,29,34,8
 END
 
+IDD_EX02DLG DIALOGEX 0, 0, 219, 203
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "ダイアログ"
+FONT 9, "ＭＳ Ｐゴシック", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "...",IDC_BTN_BROWSE,195,7,17,16
+    PUSHBUTTON      "&Cancel",IDCANCEL,162,180,50,16
+    LTEXT           "File Name:",IDC_STATIC_FILENAME,7,11,32,12
+    EDITTEXT        IDC_EDIT_FILENAME,41,7,151,16,ES_AUTOHSCROLL
+    CONTROL         "",IDC_BITMAP,"Static",SS_BITMAP,6,27,206,148,WS_EX_ACCEPTFILES | WS_EX_TRANSPARENT
+END
+
+IDD_EX03DLG DIALOGEX 0, 0, 187, 193
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "ダイアログ"
+FONT 9, "ＭＳ Ｐゴシック", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,130,7,50,16
+    PUSHBUTTON      "キャンセル",IDCANCEL,130,26,50,16
+    CONTROL         "",IDC_LISTCONTROL,"SysListView32",WS_BORDER | WS_TABSTOP,7,7,116,179
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -117,6 +139,22 @@ BEGIN
         RIGHTMARGIN, 150
         TOPMARGIN, 7
         BOTTOMMARGIN, 64
+    END
+
+    IDD_EX02DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 6
+        RIGHTMARGIN, 212
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 196
+    END
+
+    IDD_EX03DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 186
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -135,17 +173,7 @@ BEGIN
     IDS_ASK_NAME            "Please input NAME keyword."
 END
 
-#endif    // Japanese resources
+#endif    // 日本語 resources
 /////////////////////////////////////////////////////////////////////////////
 
-
-
-#ifndef APSTUDIO_INVOKED
-/////////////////////////////////////////////////////////////////////////////
-//
-// Generated from the TEXTINCLUDE 3 resource.
-//
-
-/////////////////////////////////////////////////////////////////////////////
-#endif    // not APSTUDIO_INVOKED
 
