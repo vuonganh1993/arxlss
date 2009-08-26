@@ -219,6 +219,14 @@
 				>
 			</File>
 			<File
+				RelativePath=".\Ex02Dlg.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Ex03Dlg.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\LayerState.cpp"
 				>
 			</File>
@@ -265,6 +273,14 @@
 			</File>
 			<File
 				RelativePath=".\Ex01Dlg.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Ex02Dlg.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Ex03Dlg.h"
 				>
 			</File>
 			<File
