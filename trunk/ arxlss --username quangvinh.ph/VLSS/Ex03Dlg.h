@@ -2,6 +2,7 @@
 
 #include "StdAfx.h"
 #include "Resource.h"
+#include "Logger.h"
 #include "afxcmn.h"
 
 // CEx03Dlg ダイアログ
@@ -31,4 +32,8 @@ public:
 	}
 private:
 	CListCtrl m_ctrList;
+	CImageList m_lstImage;
+public:
+	afx_msg void on_btnOk_clicked();
+	afx_msg void on_ctrList_doubleClick(NMHDR *pNMHDR, LRESULT *pResult);
 };

@@ -16,8 +16,8 @@
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory="$(SolutionDir)$(PlatformName)\$(ConfigurationName)"
-			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
+			OutputDirectory="Debug"
+			IntermediateDirectory="Debug"
 			ConfigurationType="2"
 			UseOfMFC="2"
 			UseOfATL="0"
@@ -42,6 +42,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
+				AdditionalIncludeDirectories="..\..\..\DENK\$(ProjectName);..\..\..\inc;..\..\..\inc\ac17"
 				AdditionalUsingDirectories="C:\Program Files\AutoCAD 2008"
 				PreprocessorDefinitions="WIN32;_WINDOWS;VLSS_MODULE;_AFXEXT;_ACRXAPP"
 				StringPooling="false"
@@ -64,16 +65,18 @@
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions=""
 				Culture="1033"
-				AdditionalIncludeDirectories="$(IntDir)"
+				AdditionalIncludeDirectories="..\..\..\DENK\$(ProjectName);$(IntDir)"
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="$(outdir)/SGNVLSS.arx"
+				OutputFile="../$(OutDir)/SGNVLSS.arx"
 				LinkIncremental="2"
+				AdditionalLibraryDirectories="..\..\..\lib\$(OutDir)J;..\..\..\lib\$(OutDir);..\..\..\lib\ac17"
 				LinkDLL="true"
+				GenerateManifest="false"
 				ModuleDefinitionFile="VLSS.def"
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile="$(OutDir)/VLSS.pdb"
@@ -108,8 +111,8 @@
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="$(SolutionDir)$(PlatformName)\$(ConfigurationName)"
-			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
+			OutputDirectory="Release"
+			IntermediateDirectory="Release"
 			ConfigurationType="2"
 			UseOfMFC="2"
 			UseOfATL="0"
@@ -134,6 +137,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="2"
+				AdditionalIncludeDirectories="..\..\..\DENK\$(ProjectName);..\..\..\inc;..\..\..\inc\ac17"
 				AdditionalUsingDirectories="C:\Program Files\AutoCAD 2008"
 				PreprocessorDefinitions="WIN32;_WINDOWS;VLSS_MODULE;NDEBUG;_AFXEXT;_ACRXAPP"
 				StringPooling="true"
@@ -156,16 +160,18 @@
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions=""
 				Culture="1033"
-				AdditionalIncludeDirectories="$(IntDir)"
+				AdditionalIncludeDirectories="..\..\..\DENK\$(ProjectName);$(IntDir)"
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="$(outdir)/SGNVLSS.arx"
+				OutputFile="../$(OutDir)/SGNVLSS.arx"
 				LinkIncremental="2"
+				AdditionalLibraryDirectories="..\..\..\lib\$(OutDir)J;..\..\..\lib\$(OutDir);..\..\..\lib\ac17"
 				LinkDLL="true"
+				GenerateManifest="false"
 				ModuleDefinitionFile="VLSS.def"
 				GenerateDebugInformation="false"
 				ProgramDatabaseFile=""
@@ -227,11 +233,83 @@
 				>
 			</File>
 			<File
+				RelativePath=".\Ex04Dlg.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Funcs.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\LayerState.cpp"
 				>
 			</File>
 			<File
 				RelativePath=".\Logger.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\LSS01.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\LSS02.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\LSS03.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\LSS04.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\LSS05.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\LSS06.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\LSS07.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\LSS08.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\LSS09.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\LSS10.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\LSS11.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\LSS12.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\LSS13.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\LSS14.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\LSS15.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\resource.h"
 				>
 			</File>
 			<File
@@ -284,7 +362,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\Funcs.h"
+				RelativePath=".\Ex04Dlg.h"
 				>
 			</File>
 			<File
@@ -292,67 +370,11 @@
 				>
 			</File>
 			<File
+				RelativePath=".\Lessons.h"
+				>
+			</File>
+			<File
 				RelativePath=".\Logger.h"
-				>
-			</File>
-			<File
-				RelativePath=".\LSS01.h"
-				>
-			</File>
-			<File
-				RelativePath=".\LSS02.h"
-				>
-			</File>
-			<File
-				RelativePath=".\LSS03.h"
-				>
-			</File>
-			<File
-				RelativePath=".\LSS04.h"
-				>
-			</File>
-			<File
-				RelativePath=".\LSS05.h"
-				>
-			</File>
-			<File
-				RelativePath=".\LSS06.h"
-				>
-			</File>
-			<File
-				RelativePath=".\LSS07.h"
-				>
-			</File>
-			<File
-				RelativePath=".\LSS08.h"
-				>
-			</File>
-			<File
-				RelativePath=".\LSS09.h"
-				>
-			</File>
-			<File
-				RelativePath=".\LSS10.h"
-				>
-			</File>
-			<File
-				RelativePath=".\LSS11.h"
-				>
-			</File>
-			<File
-				RelativePath=".\LSS12.h"
-				>
-			</File>
-			<File
-				RelativePath=".\LSS13.h"
-				>
-			</File>
-			<File
-				RelativePath=".\LSS14.h"
-				>
-			</File>
-			<File
-				RelativePath=".\resource.h"
 				>
 			</File>
 			<File
@@ -364,6 +386,34 @@
 			Name="Resource Files"
 			Filter="rc;ico;bmp;cur;jpg;gif"
 			>
+			<File
+				RelativePath=".\rc\Bitmap1.bmp"
+				>
+			</File>
+			<File
+				RelativePath=".\rc\Bitmap2.bmp"
+				>
+			</File>
+			<File
+				RelativePath=".\rc\Bitmap3.bmp"
+				>
+			</File>
+			<File
+				RelativePath=".\rc\Bitmap4.bmp"
+				>
+			</File>
+			<File
+				RelativePath=".\rc\Bitmap5.bmp"
+				>
+			</File>
+			<File
+				RelativePath=".\rc\Bitmap6.bmp"
+				>
+			</File>
+			<File
+				RelativePath=".\rc\Bitmap7.bmp"
+				>
+			</File>
 			<File
 				RelativePath=".\VLSS.rc"
 				>

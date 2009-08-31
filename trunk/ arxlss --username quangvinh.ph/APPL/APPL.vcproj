@@ -16,8 +16,8 @@
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory="$(SolutionDir)$(PlatformName)\$(ConfigurationName)"
-			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
+			OutputDirectory="Debug"
+			IntermediateDirectory="Debug"
 			ConfigurationType="2"
 			UseOfMFC="2"
 			UseOfATL="0"
@@ -72,7 +72,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="rxapi.lib acdb17.lib"
-				OutputFile="$(outdir)/SGNAPPL.arx"
+				OutputFile="../$(outdir)/SGNAPPL.arx"
 				LinkIncremental="2"
 				LinkDLL="true"
 				ModuleDefinitionFile="APPL.def"
@@ -109,8 +109,8 @@
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="$(SolutionDir)$(PlatformName)\$(ConfigurationName)"
-			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
+			OutputDirectory="Debug"
+			IntermediateDirectory="Debug"
 			ConfigurationType="2"
 			UseOfMFC="2"
 			UseOfATL="0"
@@ -165,7 +165,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="rxapi.lib acdb17.lib"
-				OutputFile="$(outdir)/SGNAPPL.arx"
+				OutputFile="../$(outdir)/SGNAPPL.arx"
 				LinkIncremental="2"
 				LinkDLL="true"
 				ModuleDefinitionFile="APPL.def"
