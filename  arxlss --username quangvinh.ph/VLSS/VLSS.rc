@@ -116,12 +116,23 @@ END
 
 IDD_EX03DLG DIALOGEX 0, 0, 187, 193
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog 03"
+FONT 9, "ÇlÇr ÇoÉSÉVÉbÉN", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "Load",IDOK,130,7,50,16
+    PUSHBUTTON      "&Cancel",IDCANCEL,130,26,50,16
+    CONTROL         "",IDC_LISTCONTROL,"SysListView32",WS_BORDER | WS_TABSTOP,7,7,116,179
+END
+
+IDD_EX04DLG DIALOGEX 0, 0, 186, 95
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "É_ÉCÉAÉçÉO"
 FONT 9, "ÇlÇr ÇoÉSÉVÉbÉN", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,130,7,50,16
-    PUSHBUTTON      "ÉLÉÉÉìÉZÉã",IDCANCEL,130,26,50,16
-    CONTROL         "",IDC_LISTCONTROL,"SysListView32",WS_BORDER | WS_TABSTOP,7,7,116,179
+    EDITTEXT        IDC_EDITCOPY,7,7,145,37,ES_MULTILINE | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDITPASTE,7,51,145,37,ES_MULTILINE | ES_AUTOHSCROLL
+    PUSHBUTTON      "&Copy",IDC_BTNCOPY,153,7,25,14
+    PUSHBUTTON      "&Paste",IDC_BTNPASTE,153,51,25,14
 END
 
 
@@ -156,9 +167,30 @@ BEGIN
         TOPMARGIN, 7
         BOTTOMMARGIN, 186
     END
+
+    IDD_EX04DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 178
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 88
+    END
 END
 #endif    // APSTUDIO_INVOKED
 
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_BITMAP1             BITMAP                  "rc\\Bitmap1.bmp"
+IDB_BITMAP2             BITMAP                  "rc\\Bitmap2.bmp"
+IDB_BITMAP3             BITMAP                  "rc\\Bitmap3.bmp"
+IDB_BITMAP4             BITMAP                  "rc\\Bitmap4.bmp"
+IDB_BITMAP5             BITMAP                  "rc\\Bitmap5.bmp"
+IDB_BITMAP6             BITMAP                  "rc\\Bitmap6.bmp"
+IDB_BITMAP7             BITMAP                  "rc\\Bitmap7.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //

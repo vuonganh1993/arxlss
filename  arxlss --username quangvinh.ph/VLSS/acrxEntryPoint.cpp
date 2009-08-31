@@ -24,28 +24,11 @@
 //-----------------------------------------------------------------------------
 #include "StdAfx.h"
 #include "resource.h"
-#include "LSS01.h"
-#include "LSS02.h"
-#ifdef DENKI_APPLICATION
-#include "LSS03.h"
-#include "LSS04.h"
-#include "LSS05.h"
-#include "LSS06.h"
-#endif
-#include "LSS07.h"
-#include "LSS08.h"
-#include "LSS09.h"
-#include "LSS10.h"
-#include "LSS11.h"
-#ifdef DENKI_APPLICATION
-#include "LSS12.h"
-#endif
-#include "LSS13.h"
-#include "LSS14.h"
-
+#include "Lessons.h"
 #include "Ex01Dlg.h"
 #include "Ex02Dlg.h"
 #include "Ex03Dlg.h"
+#include "Ex04Dlg.h"
 
 //-----------------------------------------------------------------------------
 #define szRDS _RXST("SGN")
@@ -202,6 +185,19 @@ public:
 	{
 		CEx03Dlg::RunMe();
 	}
+
+	// - SGNVLSS.DLG04 command (do not rename)
+	static void SGNVLSSDLG04(void)
+	{
+		CEx04Dlg::RunMe();
+	}
+
+	// - SGNVLSS.LSS15 command (do not rename)
+	static void SGNVLSSLSS15(void)
+	{
+		// Add your code for command SGNVLSS.LSS15 here
+		LSS15();
+	}
 } ;
 
 //-----------------------------------------------------------------------------
@@ -224,3 +220,5 @@ ACED_ARXCOMMAND_ENTRY_AUTO(CVLSSApp, SGNVLSS, LSS14, LSS14, ACRX_CMD_TRANSPARENT
 ACED_ARXCOMMAND_ENTRY_AUTO(CVLSSApp, SGNVLSS, DLG01, DLG01, ACRX_CMD_TRANSPARENT, NULL)
 ACED_ARXCOMMAND_ENTRY_AUTO(CVLSSApp, SGNVLSS, DLG02, DLG02, ACRX_CMD_TRANSPARENT, NULL)
 ACED_ARXCOMMAND_ENTRY_AUTO(CVLSSApp, SGNVLSS, DLG03, DLG03, ACRX_CMD_TRANSPARENT, NULL)
+ACED_ARXCOMMAND_ENTRY_AUTO(CVLSSApp, SGNVLSS, DLG04, DLG04, ACRX_CMD_TRANSPARENT, NULL)
+ACED_ARXCOMMAND_ENTRY_AUTO(CVLSSApp, SGNVLSS, LSS15, LSS15, ACRX_CMD_TRANSPARENT, NULL)
