@@ -4,6 +4,7 @@
 
 #include "Logger.h"
 
+#ifdef DENKI_APPLICATION
 #include "DENKISYT.h"
 
 
@@ -210,3 +211,4 @@ copyBlockRef(AcDbBlockReference* pBlockRefSrc, AcGePoint3d pt3To, AcDbObjectId& 
 	CLogger::Print(L"*Exit: copyBlockRef().");
 	return true;
 }
+#endif

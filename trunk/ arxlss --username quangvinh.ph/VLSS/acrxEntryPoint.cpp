@@ -144,7 +144,11 @@ public:
 	// - SGNVLSS.LSS11 command (do not rename)
 	static void SGNVLSSLSS11(void)
 	{
-		LSS11();
+		#ifdef DENKI_APPLICATION
+			LSS11();
+		#else
+			acutPrintf(ACRX_T("\nDon't support DENKI library!"));
+		#endif // DENKI_APPLICATION
 	}
 
 	// - SGNVLSS.LSS12 command (do not rename)

@@ -3,6 +3,7 @@
 #include "Lessons.h"
 #include "Logger.h"
 
+#ifdef DENKI_APPLICATION
 #include "DENKICMG.h"	// CMG::IsCacheRunning()
 #include "DENKIPJT.h"	// DenkiDwgProject class, DenkiOpenProjectAcDbDatabase()
 #include "DENKIPRJ.h"	// DenkiIsOpenProject(), DenkiSaveProjectDwgFile()
@@ -268,3 +269,4 @@ int PurgeJob(AcDbDatabase *pDb)
 
 	return	nTotal;
 }
+#endif

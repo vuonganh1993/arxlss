@@ -3,7 +3,7 @@
 	File Name:		Lessons.h
 	Author:			Pham Quang Vinh
 	
-	Purpose:		This header file declare the lessons's prototypes.
+	Purpose:		This header file declare the lessons's functions.
 *********************************************************************/
 
 #ifndef Lessons_h__

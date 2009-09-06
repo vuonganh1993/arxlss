@@ -4,6 +4,8 @@
 
 #include "Logger.h"
 
+#ifdef DENKI_APPLICATION
+
 #include "DENKIUIM.h"	// DenkiDuplicationCheckLevel class, DenkiGetDuplicationCheckLevel()
 #include "DENKISYT.h"	// DenkiSymbolSnapshot class
 #include "DENKIPJT.h"	// DenkiDwgProject class, DenkiDwgProjectFile class
@@ -231,3 +233,5 @@ void LSS06()
 		CLogger::Print(_T("*EXit"));
 	}
 }
+
+#endif // DENKI_APPLICATION

@@ -4,6 +4,7 @@
 
 #include "Logger.h"
 
+#ifdef DENKI_APPLICATION
 #include "DENKIPJM.h"
 #include "DENKISYT.h"
 #include "DENKICMG.h"
@@ -86,3 +87,5 @@ bool listFilesEx(void)
 
 	return true;
 }
+
+#endif
