@@ -4,6 +4,7 @@
 
 #include "Logger.h"
 
+#ifdef DENKI_APPLICATION
 #include "DENKIPJM.h"	// DENKI_ZUWAKU, OTHER_ZUWAKU
 #include "DENKIPJT.h"	// DenkiDwgProject class, DenkiDwgProjectFile class
 #include "DENKIPRJ.h"	// DenkiIsOpenProject()
@@ -86,3 +87,4 @@ void LSS04()
 		acdbHostApplicationServices()->setWorkingDatabase(pdbCurr);
 	}
 }
+#endif

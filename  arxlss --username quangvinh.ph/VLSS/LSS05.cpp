@@ -4,6 +4,7 @@
 
 #include "Logger.h"
 
+#ifdef DENKI_APPLICATION
 #include "DENKICMG.h"	// CMG::IsCacheRunning()
 #include "DENKIPJT.h"	// DenkiDwgProject class, DenkiOpenProjectAcDbDatabase()
 #include "DENKIPRJ.h"	// DenkiIsOpenProject(), DenkiSaveProjectDwgFile()
@@ -176,3 +177,4 @@ bool DoJob(LPCASTR pszFileName)
 	CLogger::Print(_T("*Exit: DoJob()"));
 	return true;
 }
+#endif
