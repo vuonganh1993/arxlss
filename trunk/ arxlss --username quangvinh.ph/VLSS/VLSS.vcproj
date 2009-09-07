@@ -309,6 +309,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\LSS16.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\resource.h"
 				>
 			</File>

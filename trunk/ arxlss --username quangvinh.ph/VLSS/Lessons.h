@@ -135,4 +135,11 @@ void readProfile();
 void writePrifile();
 void LSS15(void);
 
+/****************************
+ *	LESSON 16
+ * Practice for handling selection set.
+ */
+void LSS16(void);
+
+
 #endif // Lessons_h__
