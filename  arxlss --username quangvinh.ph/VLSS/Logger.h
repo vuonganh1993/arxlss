@@ -4,7 +4,8 @@
 	Purpose:	This file declares the CLogger class that will enable we to log our application into
 					an special file.
 *********************************************************************/
-#pragma once
+#ifndef Logger_h__
+#define Logger_h__
 
 class CLogger
 {
@@ -22,3 +23,5 @@ public:
 	static void Print(LPCTSTR pszFormat, ...);
 	static bool m_bEnableLogging;	
 };
+
+#endif // Logger_h__

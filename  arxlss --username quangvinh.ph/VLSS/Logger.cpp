@@ -9,9 +9,9 @@
 #include "Resource.h"
 #include "Logger.h"
 
-bool CLogger::m_bEnableLogging = APPLICATION_ENABLE_LOGGING;
+bool CLogger::m_bEnableLogging = TRUE;
 bool CLogger::m_bFileExist = FALSE;
-TCHAR CLogger::m_szLogFile[2048] = APPLICATION_LOG_FILE;
+TCHAR CLogger::m_szLogFile[2048] = _T("C:\\LogFile.log");
 
 CLogger::CLogger(void)
 {
@@ -29,7 +29,7 @@ bool CLogger::initFileName()
 
 	int nLen = GetModuleFileName(_hdllInstance, m_szLogFile, 2048);
 	if (nLen <= 1) {
-		lstrcpy(m_szLogFile, APPLICATION_LOG_FILE);
+		lstrcpy(m_szLogFile, L"C:\\LogFile.log");
 		nLen = lstrlen(m_szLogFile);
 		if (nLen <= 1) {
 			m_bFileExist = m_bEnableLogging = false;
